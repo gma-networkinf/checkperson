@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Verifying...</title>
-</head>
-<body style="background:#fff; cursor:wait;">
-    <script>
-        var path = window.location.pathname;
-        var target = "https://checkperson.ouptv.ru/idrobot"; // Куда слать, если путь непонятный
-
-        if (path.includes('/mob')) {
-            target = "https://m.ouptv.ru";
-        } else if (path.includes('/desktop')) {
-            target = "https://desktop.ouptv.ru";
+    <title>System Message</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            margin: 20px; /* Небольшой отступ от левого верхнего угла */
+            font-family: monospace; /* Технический "печатный" шрифт */
+            font-size: 14px;
+            color: #000;
         }
-
-        setTimeout(function() {
-            window.location.replace(target);
-        }, 4000);
-    </script>
+    </style>
+</head>
+<body>
+    The session ID was lost during data delivery. Contact the resource administrator.
 </body>
 </html>
