@@ -2,18 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>System Message</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Limited</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             background-color: #ffffff;
-            margin: 20px; /* Небольшой отступ от левого верхнего угла */
-            font-family: monospace; /* Технический "печатный" шрифт */
-            font-size: 14px;
+            /* Используем системные шрифты для чистого, "родного" вида */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            /* Убираем выделение текста, чтобы страница казалась более "системной" */
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Центральный блок с сообщением */
+        .content {
+            flex: 1; /* Занимает все доступное пространство, толкая футер вниз */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Центрируем по вертикали */
+            padding: 0 40px; /* Отступы по бокам */
+            max-width: 650px; /* Ограничиваем ширину текста */
+            margin: 0 auto; /* Центрируем блок по горизонтали */
+        }
+
+        /* Воссоздаем смайлик из точек и тире */
+        .face {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            line-height: 0.8;
+            letter-spacing: -2px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        /* Твой текст ошибки */
+        p {
+            font-size: 16px;
+            color: #6e6e73; /* Серый цвет текста */
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Нижняя часть страницы (футер) */
+        footer {
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between; /* Логотип слева, инфо справа */
+            align-items: flex-end; /* Выравниваем по нижней линии */
+            font-size: 13px;
+        }
+
+        .powered-by {
+            color: #86868b;
+        }
+
+        /* Логотип: CHECKPERS{}N */
+        .brand {
+            font-weight: 800; /* Очень жирный */
+            font-size: 19px;
             color: #000;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-top: 4px;
+        }
+
+        .info {
+            text-align: right;
+            color: #6e6e73;
+            line-height: 1.6;
+        }
+
+        /* Стили для ID, чтобы он не прыгал при генерации */
+        #random-id {
+            font-family: monospace; /* Моноширинный шрифт для цифр */
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
-    The session ID was lost during data delivery. Contact the resource administrator.
+
+    <div class="content">
+        <div class="face">. :<br>—</div>
+        
+        <h1>Oops....<br>
+        
+        <p>
+            The session ID was lost during data delivery.<br>
+            Contact the resource administrator.
+        </p>
+    </div>
+
+    <footer>
+        <div class="powered-by">
+            Powered by<br>
+            <div class="brand">CHECKPERS{}N</div>
+        </div>
+        
+        <div class="info">
+            ID:<span id="random-id"></span><br>
+            ouptv.gma@proton.me<br>
+            status.ouptv.ru
+        </div>
+    </footer>
+
+    <script>
+        // Функция для генерации 16 случайных цифр
+        function generateRandomId(length) {
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += Math.floor(Math.random() * 10); // Случайная цифра от 0 до 9
+            }
+            return result;
+        }
+
+        // Находим элемент на странице и вставляем туда ID
+        document.getElementById('random-id').innerText = generateRandomId(16);
+    </script>
+
 </body>
 </html>
